@@ -1,11 +1,32 @@
 import 'package:flutter/material.dart';
 
+// Dart lists
+//
+// Creating the List:
+// List<string> names = ['Angela', 'Daniel', 'Aroa'];
+// Lists in Dart are zero-index
+// names[1] == 'Daniel';
+//
+// You can also get the index of an element
+// names.indexOf('Daniel') == 1
+//
+// To push a new item to a List
+// names.add('Alicia');
+//
+// To insert a new item into a List
+// in the position you want use
+// names.insert(1, 'Laura');
+//
+// To get the first item: names.first()
+// To get the last item: names.last()
+
 void main() => runApp(Quizzler());
 
 class Quizzler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.grey.shade900,
         body: SafeArea(
