@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizzler/question.dart';
 
 // Dart lists
 //
@@ -76,13 +77,18 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scoreKeeper = [];
-  List<String> questions = [
-    'You can lead a cow down stairs but not up stairs.',
-    'Approximately one quarter of human bones are in the feet.',
-    'A slug\'s blood is green.',
-  ];
-  List<bool> answers = [false, true, true];
+  // Question q1 = Question(
+  //     q: 'You can lead a cow down stairs but not up stairs.', a: false);
+  // Question q2 = Question(
+  //     q: 'Approximately one quarter of human bones are in the feet.', a: false);
+  // Question q3 = Question(q: 'A slug\'s blood is green.', a: false);
   int questionNumber = 0;
+  List<Question> questionBank = [
+    Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
+    Question(
+        q: 'Aproximately one quarter of human bones are in the feet.', a: true),
+    Question(q: 'A slug\'s blood is green', a: true),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +102,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[questionNumber],
+                questionBank[questionNumber].questionText,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -120,12 +126,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctAnwer = answers[questionNumber];
+                bool correctAnwer = questionBank[questionNumber].questionAnswer;
                 if (correctAnwer) {
                   print('user got it right');
                 } else {
                   print('user got it wrong');
                 }
+
                 setState(() {
                   questionNumber++;
                 });
@@ -146,7 +153,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctAnwer = answers[questionNumber];
+                bool correctAnwer = questionBank[questionNumber].questionAnswer;
                 if (correctAnwer) {
                   print('user got it rigth');
                 } else {
