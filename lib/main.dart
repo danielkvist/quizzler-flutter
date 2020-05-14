@@ -20,6 +20,35 @@ import 'package:flutter/material.dart';
 // To get the first item: names.first()
 // To get the last item: names.last()
 
+// Dart if/else
+// An if statement basically checks
+// if a condition is true, then, it executes
+// the code specified inside the body ({}).
+// if (condition) { instruction; }
+// if (track == 'clear') { go(); }
+//
+// In Dart we can also use else
+// if (track == 'clear') {
+//    go();
+// } else {
+//    turnRight();
+// }
+//
+// And else if()
+//
+// Operators
+// == -> Is equal to
+// != -> Is not equal to
+// >  -> Is greater than
+// <  -> Is lesser than
+// <= -> Is lesser than or equal to
+// >= -> Is greater than or equal to
+//
+// We can use another kind of operators:
+// && -> AND
+// || -> OR
+// !  -> NOR
+
 void main() => runApp(Quizzler());
 
 class Quizzler extends StatelessWidget {
@@ -52,6 +81,7 @@ class _QuizPageState extends State<QuizPage> {
     'Approximately one quarter of human bones are in the feet.',
     'A slug\'s blood is green.',
   ];
+  List<bool> answers = [false, true, true];
   int questionNumber = 0;
 
   @override
@@ -90,6 +120,12 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnwer = answers[questionNumber];
+                if (correctAnwer) {
+                  print('user got it right');
+                } else {
+                  print('user got it wrong');
+                }
                 setState(() {
                   questionNumber++;
                 });
@@ -110,6 +146,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnwer = answers[questionNumber];
+                if (correctAnwer) {
+                  print('user got it rigth');
+                } else {
+                  print('user got it wrong');
+                }
+
                 setState(() {
                   questionNumber++;
                 });
