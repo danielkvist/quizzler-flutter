@@ -79,12 +79,6 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scoreKeeper = [];
-  // Question q1 = Question(
-  //     q: 'You can lead a cow down stairs but not up stairs.', a: false);
-  // Question q2 = Question(
-  //     q: 'Approximately one quarter of human bones are in the feet.', a: false);
-  // Question q3 = Question(q: 'A slug\'s blood is green.', a: false);
-  int questionNumber = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +92,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizBrain.questionBank[questionNumber].questionText,
+                quizBrain.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -122,8 +116,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctAnwer =
-                    quizBrain.questionBank[questionNumber].questionAnswer;
+                bool correctAnwer = quizBrain.getQuestionAnswer();
                 if (correctAnwer) {
                   print('user got it right');
                 } else {
@@ -131,7 +124,7 @@ class _QuizPageState extends State<QuizPage> {
                 }
 
                 setState(() {
-                  questionNumber++;
+                  quizBrain.nextQuestion();
                 });
               },
             ),
@@ -150,8 +143,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctAnwer =
-                    quizBrain.questionBank[questionNumber].questionAnswer;
+                bool correctAnwer = quizBrain.getQuestionAnswer();
                 if (correctAnwer) {
                   print('user got it rigth');
                 } else {
@@ -159,7 +151,7 @@ class _QuizPageState extends State<QuizPage> {
                 }
 
                 setState(() {
-                  questionNumber++;
+                  quizBrain.nextQuestion();
                 });
               },
             ),
