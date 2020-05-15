@@ -50,13 +50,24 @@
 // Human jenny = Human(h: 174);
 // jenny.tal('Why is the sky blue?');
 
+// Why do we need classes?
+// Classes are a form of abstraction and abstraction
+// is important. Why? Because abstraction is a way to
+// avoid complexity.
+//
+// Dart is an OOP:
+//  * Abstraction.
+//  * Encapsulation.
+//  * Inheritance.
+//  * Polymorphism.
+
 class Question {
   // Properties
   String questionText;
   bool questionAnswer;
 
   // Constructor
-  Question({String q, bool a}) {
+  Question(String q, bool a) {
     questionText = q;
     questionAnswer = a;
   }
